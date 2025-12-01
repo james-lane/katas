@@ -7,23 +7,17 @@ export const part1 = (input: string) => {
   for (let rowIndex = 0; rowIndex < inputRows.length; rowIndex++) {
     let row = inputRows[rowIndex]
 
-    if (row.startsWith('L')) {
-      for (let index = 0; index < parseInt(row.substring(1)); index++) {
+    for (let index = 0; index < parseInt(row.substring(1)); index++) {
+      if (row.startsWith('L')) {
         pointer--
-
-        if (pointer === 100 || pointer === -100) {
-          pointer = 0
-        }
       }
-    }
 
-    if (row.startsWith('R')) {
-      for (let index = 0; index < parseInt(row.substring(1)); index++) {
+      if (row.startsWith('R')) {
         pointer++
+      }
 
-        if (pointer === 100 || pointer === -100) {
-          pointer = 0
-        }
+      if (pointer === 100 || pointer === -100) {
+        pointer = 0
       }
     }
 
@@ -42,28 +36,20 @@ export const part2 = (input: string) => {
   for (let rowIndex = 0; rowIndex < inputRows.length; rowIndex++) {
     let row = inputRows[rowIndex]
 
-    if (row.startsWith('L')) {
-      for (let index = 0; index < parseInt(row.substring(1)); index++) {
+    for (let index = 0; index < parseInt(row.substring(1)); index++) {
+      if (row.startsWith('L')) {
         pointer--
-
-        if (pointer === 100 || pointer === -100) {
-          pointer = 0
-        }
-
-        if (pointer === 0) zeroCount++
       }
-    }
 
-    if (row.startsWith('R')) {
-      for (let index = 0; index < parseInt(row.substring(1)); index++) {
+      if (row.startsWith('R')) {
         pointer++
-
-        if (pointer === 100 || pointer === -100) {
-          pointer = 0
-        }
-
-        if (pointer === 0) zeroCount++
       }
+
+      if (pointer === 100 || pointer === -100) {
+        pointer = 0
+      }
+
+      if (pointer === 0) zeroCount++
     }
   }
 
