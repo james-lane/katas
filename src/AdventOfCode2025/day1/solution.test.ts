@@ -1,4 +1,4 @@
-import { part1 } from './solution'
+import { part1, part2 } from './solution'
 
 const exampleInput = `L68
 L30
@@ -4172,16 +4172,16 @@ describe('part1', () => {
   })
 })
 
-// describe('part2', () => {
-//   it('should pass example test', () => {
-//     const res = part2(exampleInput)
+describe('part2', () => {
+  it('should pass example test', () => {
+    const res = part2(exampleInput)
 
-//     expect(res).toEqual(31)
-//   })
+    expect(res).toEqual(6)
+  })
 
-//   it('should return expected result for puzzle input', () => {
-//     const res = part2(puzzleInput)
+  it('should return expected result for puzzle input', () => {
+    const res = part2(puzzleInput)
 
-//     expect(res).toEqual(26407426)
-//   })
-// })
+    expect(res).toEqual(5923)
+  })
+})
