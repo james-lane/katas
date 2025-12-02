@@ -25,9 +25,9 @@ describe('part2', () => {
     expect(res).toEqual(4174379265)
   })
 
-  // it('should return expected result for puzzle input', () => {
-  //   const res = part2(puzzleInput)
+  it('should return expected result for puzzle input', () => {
+    const res = part2(puzzleInput)
 
-  //   expect(res).toEqual(5923)
-  // })
+    expect(res).toEqual(70187097315)
+  })
 })
