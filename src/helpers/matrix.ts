@@ -151,3 +151,51 @@ export const getDiagonalsToTopRight = (input: any[][]) => {
 
   return diagonals
 }
+
+export const getAdjacents = (input: any[][]) => {
+  const list = convertMatrixToCoords(input)
+  const adjacents: { element: any; adjacent: any[] }[] = []
+
+  list.forEach((item) => {
+    const adjacent = []
+
+    const r = getElemByCoords(list, [item.coords[0], item.coords[1] + 1])
+    if (r) adjacent.push(r)
+    const br = getElemByCoords(list, [item.coords[0] + 1, item.coords[1] + 1])
+    if (br) adjacent.push(br)
+    const b = getElemByCoords(list, [item.coords[0] + 1, item.coords[1]])
+    if (b) adjacent.push(b)
+    const bl = getElemByCoords(list, [item.coords[0] + 1, item.coords[1] - 1])
+    if (bl) adjacent.push(bl)
+    const l = getElemByCoords(list, [item.coords[0], item.coords[1] - 1])
+    if (l) adjacent.push(l)
+    const tl = getElemByCoords(list, [item.coords[0] - 1, item.coords[1] - 1])
+    if (tl) adjacent.push(tl)
+    const t = getElemByCoords(list, [item.coords[0] - 1, item.coords[1]])
+    if (t) adjacent.push(t)
+    const tr = getElemByCoords(list, [item.coords[0] - 1, item.coords[1] + 1])
+    if (tr) adjacent.push(tr)
+
+    adjacents.push({ element: item.element, adjacent })
+  })
+
+  return adjacents
+}
+
+export const convertMatrixToCoords = (input: any[][]) => {
+  const elementsWithCoords: { element: any; coords: number[] }[] = []
+
+  for (let i = 0; i < input.length; i++) {
+    const row = input[i]
+
+    for (let j = 0; j < row.length; j++) {
+      elementsWithCoords.push({ element: row[j], coords: [i, j] })
+    }
+  }
+
+  return elementsWithCoords
+}
+
+export const getElemByCoords = (input: { element: any; coords: number[] }[], coords: number[]) => {
+  return input.find((e) => e.coords.toString() === coords.toString())?.element
+}

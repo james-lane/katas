@@ -1,4 +1,4 @@
-import { createMatrix } from '../helpers/matrix'
+import { createMatrix } from '../../helpers/matrix'
 
 export const part1 = (input: string) => {
   let map = createMatrix(input)

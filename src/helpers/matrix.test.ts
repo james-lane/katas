@@ -8,6 +8,8 @@ import {
   getDiagonalsToBottomRight,
   getDiagonalsToTopRight,
   getDiagonalsToTopLeft,
+  getAdjacents,
+  getElemByCoords,
 } from './matrix'
 
 const strMatrix = `ABC
@@ -100,5 +102,27 @@ describe('getDiagonals', () => {
       ['D', 'H'],
       ['G'],
     ])
+  })
+})
+
+describe.only('getAdjacent functions', () => {
+  it.only('getAdjacents should return adjacent values for each item', () => {
+    expect(getAdjacents(matrix)).toEqual([
+      { element: 'A', adjacent: ['B', 'E', 'D'] },
+      { element: 'B', adjacent: ['C', 'F', 'E', 'D', 'A'] },
+      { element: 'C', adjacent: ['F', 'E', 'B'] },
+      { element: 'D', adjacent: ['E', 'H', 'G', 'A', 'B'] },
+      { element: 'E', adjacent: ['F', 'I', 'H', 'G', 'D', 'A', 'B', 'C'] },
+      { element: 'F', adjacent: ['I', 'H', 'E', 'B', 'C'] },
+      { element: 'G', adjacent: ['H', 'D', 'E'] },
+      { element: 'H', adjacent: ['I', 'G', 'D', 'E', 'F'] },
+      { element: 'I', adjacent: ['H', 'E', 'F'] },
+    ])
+  })
+
+  it('getElemByCoords should return adjacent values for each item', () => {
+    expect(getElemByCoords(matrix, [0, 0])).toEqual('A')
+    expect(getElemByCoords(matrix, [0, 1])).toEqual('B')
+    expect(getElemByCoords(matrix, [2, 0])).toEqual('G')
   })
 })

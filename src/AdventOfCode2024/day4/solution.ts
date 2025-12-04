@@ -8,7 +8,7 @@ import {
   getVerticals,
   getReversedVerticals,
   createMatrix,
-} from '../helpers/matrix'
+} from '../../helpers/matrix'
 
 export const part1 = (input: string) => {
   const matrix = createMatrix(input)
